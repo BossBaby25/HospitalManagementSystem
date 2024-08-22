@@ -1,31 +1,16 @@
 package com.hms.model;
 
-/**
- * @Atia Azmi
- */
-public class PathologicalTest {
+public class PathologicalTest extends LabTest {
+    private String reagent;
 
-    public String title;
-    double cost;
-    boolean isAvailable;
-
-    // Corrected constructor
-    public PathologicalTest(String title, double cost, boolean isAvailable) {
-        this.title = title;
-        this.cost = cost;
-        this.isAvailable = isAvailable;
+    public PathologicalTest(String title, double cost, boolean isAvailable, String reagent) {
+        super(title, cost, isAvailable);
+        this.reagent = reagent;
     }
+
+    @Override
     public String returnLabTestInfo() {
-        String output = "Test name: " + this.title + "\n"
-                + "Cost: " + this.cost + "\n"
-                + "Availability:  " + this.isAvailable;
-        return output;
+        return String.format("Test Type: Pathological\nTest Title: %s\nCost: %.2f\nAvailable: %s\nReagent: %s",
+                title, cost, isAvailable ? "Yes" : "No", reagent);
     }
-//    void search(String title) {
-//        if (this.title.equals(title)) {
-//            System.out.println(returnLabTestInfo());
-//        } else {
-//            System.out.println("Not found");
-//        }
-//    }
 }
